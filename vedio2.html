@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>video play</title>
+  <style>
+    /* Reset (simple) */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Page */
+    :root {
+      --bg1: #0f172a;
+      --bg2: #071033;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --accent: #60a5fa;
+      --muted: rgba(255, 255, 255, 0.7);
+    }
+
+    html,
+    body {
+      height: 100%;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 100%);
+      color: #fff;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Container */
+    .page {
+      max-width: 1200px;
+      margin: 36px auto;
+      padding: 20px;
+    }
+
+    /* Title */
+    .page-title {
+      font-size: 1.5rem;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 24px;
+      background: linear-gradient(90deg, #fff, var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Gallery grid */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      align-items: start;
+    }
+
+    /* Card */
+    .media-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 8px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(2, 6, 23, 0.6);
+      transition: transform 220ms ease, box-shadow 220ms ease;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    /* Hover / focus */
+    .media-card:hover,
+    .media-card:focus-within {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(2, 6, 23, 0.75);
+    }
+
+    /* Make media fit card */
+    .media-card video,
+    .media-card img {
+      width: 100%;
+      height: 420px;
+      /* desired height on desktop */
+      object-fit: cover;
+      display: block;
+      border-radius: 8px;
+      background: #000;
+    }
+
+    /* Small screens: reduce height to avoid overflow */
+    @media (max-width: 900px) {
+
+      .media-card video,
+      .media-card img {
+        height: 340px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .page {
+        margin: 12px;
+        padding: 12px;
+      }
+
+      .media-card video,
+      .media-card img {
+        height: 220px;
+      }
+
+      .page-title {
+        font-size: 1.1rem;
+      }
+    }
+
+    /* video controls accessibility improvements */
+    .media-card video {
+      background: #000;
+    }
+
+    /* optional caption style (if you add captions) */
+    .media-card .caption {
+      font-size: 0.9rem;
+      color: var(--muted);
+      padding: 6px 4px 0 4px;
+    }
+
+    /* Center fallback text when media fails */
+    .media-card img[alt=""],
+    .media-card video[poster=""] {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+    }
+
+    /* Utility: make links/buttons visible on dark bg */
+    a,
+    button {
+      color: var(--accent);
+    }
+
+    /* Make sure controls are usable on mobile (touch) */
+    @media (hover: none) {
+      .media-card {
+        transform: none;
+        box-shadow: 0 8px 22px rgba(2, 6, 23, 0.6);
+      }
+    }
+    /* Stylish H2 Footer Section */
+h2 {
+  text-align: center;
+  font-size: 5rem;
+  margin-top: 40px;
+  font-weight: 600;
+  color: #60a5fa;
+  letter-spacing: 1.2px;
+  text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+  animation: glowText 2s infinite alternate;
+  transition: color 0.3s ease-in-out;
+}
+
+/* glowing animation */
+@keyframes glowText {
+  0% {
+    text-shadow: 0 0 10px rgba(96, 165, 250, 0.6),
+                 0 0 20px rgba(96, 165, 250, 0.4);
+  }
+  100% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+                 0 0 40px rgba(96, 165, 250, 0.8);
+  }
+}
+
+  </style>
+
+</head>
+
+<body>
+  <main class="page">
+    <h1 class="page-title">AI FACE SWAP VIDEO OR IMAGE</h1>
+
+    <section class="gallery">
+      <article class="media-card">
+        <video autoplay muted controls src="61ad5c0042c011efa9f2dd5151b3639a.mp4"></video>
+      </article>
+
+      <article class="media-card">
+        <img src="WhatsApp Image 2025-11-07 at 19.05.31_16d7fbfe.jpg" alt="image1">
+      </article>
+
+      <article class="media-card">
+        <video autoplay muted controls src="WhatsApp Video 2025-11-07 at 18.51.10_d2c32a47.mp4"></video>
+      </article>
+
+      <article class="media-card">
+        <img src="WhatsApp Image 2025-11-07 at 19.05.16_f1d54ed9.jpg" alt="image2">
+      </article>
+
+      <article class="media-card">
+        <video autoplay muted controls src="WhatsApp Video 2025-11-07 at 19.02.03_8c973606.mp4"></video>
+      </article>
+
+      <article class="media-card">
+        <img src="ai image2.png" alt="ai image">
+      </article>
+
+      <article class="media-card">
+        <video autoplay muted controls src="282b79b0bbe811f09737613db1945eac.mp4"></video>
+      </article>
+
+      <article class="media-card">
+        <img src="WhatsApp Image 2025-11-07 at 19.09.45_bf398956.jpg" alt="image4">
+      </article>
+      <article class="media-card">
+        <video autoplay muted controls src="WhatsApp Video 2025-11-07 at 22.39.32_c95f32c2.mp4"></video>
+      </article>
+      <h2>Follow us more content </h2>
+
+
+      </article>
+    </section>
+  </main>
+</body>
+
+</html>
